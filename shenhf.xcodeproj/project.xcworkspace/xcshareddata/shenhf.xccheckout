@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>83176CD9-264A-462C-93D5-49145932303A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>shenhf</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</key>
+		<string>https://github.com/echozhjun/shenhf.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>shenhf/shenhf.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/echozhjun/shenhf.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shenhf</string>
+		</dict>
+	</array>
+</dict>
+</plist>
