@@ -11,5 +11,13 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIViewController *viewController;
+@property (strong, nonatomic) UIViewController *coverController;
+
+@end
+
+@protocol ParentDelegate <NSObject>
+
+@property (strong, nonatomic) AppDelegate *delegate;
 
 @end
