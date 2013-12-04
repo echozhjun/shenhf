@@ -11,5 +11,8 @@
 @interface ItemViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger index;
+@property (assign, nonatomic) NSDictionary *data;
+
+- (void)initData;
 
 @end

@@ -56,12 +56,11 @@ NSInteger currentIndex = -1;
 {
     [super viewDidLoad];
 	
-//    _gmGridView.sortingDelegate   = self;
-//    _gmGridView.transformDelegate = self;
     _gmGridView.dataSource = self;
     _gmGridView.actionDelegate = self;
     
     _gmGridView.mainSuperView = self.view;
+    
 }
 
 - (void)computeViewFrames

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F18D05A183F311E0085E181 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F18D057183F311E0085E181 /* SVProgressHUD.bundle */; };
+		5F18D05B183F311E0085E181 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D059183F311E0085E181 /* SVProgressHUD.m */; };
 		5FDDBC58183C9D2F00647A51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDDBC57183C9D2F00647A51 /* Foundation.framework */; };
 		5FDDBC5A183C9D2F00647A51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDDBC59183C9D2F00647A51 /* CoreGraphics.framework */; };
 		5FDDBC5C183C9D2F00647A51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDDBC5B183C9D2F00647A51 /* UIKit.framework */; };
@@ -33,6 +35,7 @@
 		5FDDBCB0183CA1EF00647A51 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDBCAA183CA1EF00647A51 /* UIGestureRecognizer+GMGridViewAdditions.m */; };
 		5FDDBCB1183CA1EF00647A51 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDBCAC183CA1EF00647A51 /* UIView+GMGridViewAdditions.m */; };
 		5FDDBCB3183CA59A00647A51 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDBCB2183CA59A00647A51 /* CenterViewController.m */; };
+		5FDDBCB6183CB25600647A51 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDDBCB5183CB25600647A51 /* Reachability.m */; };
 		CE7FBC5B37594155AAB4BC15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D90D206B860B4241847C0A68 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		1BE8A53ACB28413BBCEE42B2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5F18D056183F311E0085E181 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		5F18D057183F311E0085E181 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		5F18D058183F311E0085E181 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		5F18D059183F311E0085E181 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		5FDDBC54183C9D2F00647A51 /* shenhf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shenhf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDDBC57183C9D2F00647A51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FDDBC59183C9D2F00647A51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,6 +99,8 @@
 		5FDDBCAB183CA1EF00647A51 /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
 		5FDDBCAC183CA1EF00647A51 /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		5FDDBCB2183CA59A00647A51 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
+		5FDDBCB4183CB25600647A51 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5FDDBCB5183CB25600647A51 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D90D206B860B4241847C0A68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,9 +129,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F18D055183F311E0085E181 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				5F18D056183F311E0085E181 /* SVProgressHUD-Prefix.pch */,
+				5F18D057183F311E0085E181 /* SVProgressHUD.bundle */,
+				5F18D058183F311E0085E181 /* SVProgressHUD.h */,
+				5F18D059183F311E0085E181 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		5FDDBC4B183C9D2F00647A51 = {
 			isa = PBXGroup;
 			children = (
+				5F18D055183F311E0085E181 /* SVProgressHUD */,
 				5FDDBCA0183CA1EF00647A51 /* GMGridView */,
 				5FDDBC90183C9FA900647A51 /* images */,
 				5FDDBC8C183C9EA300647A51 /* sources */,
@@ -211,6 +232,8 @@
 		5FDDBC8C183C9EA300647A51 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				5FDDBCB4183CB25600647A51 /* Reachability.h */,
+				5FDDBCB5183CB25600647A51 /* Reachability.m */,
 				5FDDBC8D183C9EA300647A51 /* JASidePanelController.h */,
 				5FDDBC8E183C9EA300647A51 /* JASidePanelController.m */,
 			);
@@ -322,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F18D05A183F311E0085E181 /* SVProgressHUD.bundle in Resources */,
 				5FDDBC92183C9FA900647A51 /* logo.jpg in Resources */,
 				5FDDBC70183C9D2F00647A51 /* Images.xcassets in Resources */,
 				5FDDBC62183C9D2F00647A51 /* InfoPlist.strings in Resources */,
@@ -381,10 +405,12 @@
 				5FDDBC9E183CA10E00647A51 /* ControlViewController.m in Sources */,
 				5FDDBC9C183CA10E00647A51 /* WelcomeViewController.m in Sources */,
 				5FDDBC6E183C9D2F00647A51 /* ViewController.m in Sources */,
+				5FDDBCB6183CB25600647A51 /* Reachability.m in Sources */,
 				5FDDBC9D183CA10E00647A51 /* TopViewController.m in Sources */,
 				5FDDBCAE183CA1EF00647A51 /* GMGridViewCell.m in Sources */,
 				5FDDBCB1183CA1EF00647A51 /* UIView+GMGridViewAdditions.m in Sources */,
 				5FDDBC68183C9D2F00647A51 /* AppDelegate.m in Sources */,
+				5F18D05B183F311E0085E181 /* SVProgressHUD.m in Sources */,
 				5FDDBC9F183CA10E00647A51 /* ItemViewController.m in Sources */,
 				5FDDBCB0183CA1EF00647A51 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				5FDDBCAD183CA1EF00647A51 /* GMGridView.m in Sources */,

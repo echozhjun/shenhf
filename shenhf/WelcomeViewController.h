@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-@interface WelcomeViewController : UIViewController<ParentDelegate>
-
-@property (strong, nonatomic) AppDelegate *delegate;
+@interface WelcomeViewController : UIViewController
 
 @end

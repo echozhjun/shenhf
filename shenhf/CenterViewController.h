@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemViewController.h"
+#import "WelcomeViewController.h"
 
 typedef NS_ENUM(NSInteger, CenterViewStatus) {
     CenterViewStatusGlobel = 0,
-    CenterViewStatusImem = 1
+    CenterViewStatusItem = 1
 };
 
 @interface CenterViewController : UIViewController<UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (assign, nonatomic) CenterViewStatus viewStatus;
+@property (strong, nonatomic) WelcomeViewController *welcomeView;
 
 @end
