@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, CenterViewStatus) {
 @interface CenterViewController : UIViewController<UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
+@property (strong, nonatomic) WelcomeViewController *welcomeViewController;
 @property (assign, nonatomic) CenterViewStatus viewStatus;
-@property (strong, nonatomic) WelcomeViewController *welcomeView;
 
 @end

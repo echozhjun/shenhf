@@ -10,15 +10,23 @@
 	<string>shenhf</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1E986324-FAB3-42AF-92FA-A18B7A59B597</key>
+		<string>git://github.com/enormego/EGOCache.git</string>
 		<key>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</key>
 		<string>https://github.com/echozhjun/shenhf.git</string>
+		<key>DCD20CF7-367C-4FBA-951C-0CE7025680A6</key>
+		<string>https://github.com/enormego/EGOImageLoading.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>shenhf.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>1E986324-FAB3-42AF-92FA-A18B7A59B597</key>
+		<string>../EGOImageLoading/EGOCache</string>
 		<key>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</key>
 		<string>..</string>
+		<key>DCD20CF7-367C-4FBA-951C-0CE7025680A6</key>
+		<string>../EGOImageLoading</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/echozhjun/shenhf.git</string>
@@ -28,6 +36,22 @@
 	<string>2CEBB3D2-2AE3-4E28-88E7-75F51E8A3BA0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1E986324-FAB3-42AF-92FA-A18B7A59B597</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EGOCache</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DCD20CF7-367C-4FBA-951C-0CE7025680A6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EGOImageLoading</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

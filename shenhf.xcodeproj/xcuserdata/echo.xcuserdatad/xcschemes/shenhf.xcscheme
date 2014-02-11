@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FDDBC53183C9D2F00647A51"
-               BuildableName = "shenhf.app"
+               BuildableName = "&#31070;&#22238;&#22797;.app"
                BlueprintName = "shenhf"
                ReferencedContainer = "container:shenhf.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FDDBC53183C9D2F00647A51"
-            BuildableName = "shenhf.app"
+            BuildableName = "&#31070;&#22238;&#22797;.app"
             BlueprintName = "shenhf"
             ReferencedContainer = "container:shenhf.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FDDBC53183C9D2F00647A51"
-            BuildableName = "shenhf.app"
+            BuildableName = "&#31070;&#22238;&#22797;.app"
             BlueprintName = "shenhf"
             ReferencedContainer = "container:shenhf.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FDDBC53183C9D2F00647A51"
-            BuildableName = "shenhf.app"
+            BuildableName = "&#31070;&#22238;&#22797;.app"
             BlueprintName = "shenhf"
             ReferencedContainer = "container:shenhf.xcodeproj">
          </BuildableReference>

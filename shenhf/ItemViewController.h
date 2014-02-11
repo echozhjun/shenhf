@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TencentOpenAPI/QQApiInterface.h"
 
-@interface ItemViewController : UIViewController
+@interface ItemViewController : UIViewController<QQApiInterfaceDelegate>
 
 @property (assign, nonatomic) NSInteger index;
 @property (assign, nonatomic) NSDictionary *data;
