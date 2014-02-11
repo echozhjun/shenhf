@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WXApi.h"
+#import "CenterViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIViewController *viewController;
-@property (strong, nonatomic) UIViewController *coverController;
+@property (strong, nonatomic) CenterViewController *viewController;
+@property (strong, nonatomic) UIView *coverView;
 
 @end
 

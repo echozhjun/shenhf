@@ -23,4 +23,6 @@ typedef NS_ENUM(NSInteger, CenterViewStatus) {
 
 -(void)gotoPageAtIndex:(NSInteger)index;
 
+- (void) refresh;
+
 @end

@@ -779,6 +779,7 @@
 					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 				);
 				INFOPLIST_FILE = "shenhf/shenhf-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/echo/git/shenhf/SDKExport,
@@ -817,6 +818,7 @@
 					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 				);
 				INFOPLIST_FILE = "shenhf/shenhf-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/echo/git/shenhf/SDKExport,

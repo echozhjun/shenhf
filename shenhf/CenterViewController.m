@@ -54,6 +54,13 @@ NSInteger currentPage = -1;
     }
 }
 
+- (void) refresh {
+    currentPage = -1;
+    [self.pageController.view removeFromSuperview];
+    self.pageController = nil;
+    [self requestData:0];
+}
+
 - (void)loadCenterView {
     if (self.pageController == nil) {
         NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:UIPageViewControllerSpineLocationMin]
@@ -64,9 +71,9 @@ NSInteger currentPage = -1;
     
         [self.pageController setViewControllers:[NSArray arrayWithObject:[self viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
-        [self addChildViewController:self.pageController];
+//        [self addChildViewController:self.pageController];
         [[self view] addSubview:[self.pageController view]];
-        [self.pageController didMoveToParentViewController:self];
+//        [self.pageController didMoveToParentViewController:self];
     }
 }
 
