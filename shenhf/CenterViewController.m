@@ -70,8 +70,13 @@ NSInteger currentPage = -1;
     }
 }
 
+-(void)gotoPageAtIndex:(NSInteger)index {
+    [self.pageController setViewControllers:[NSArray arrayWithObject:[self viewControllerAtIndex:index]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
+
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
 	ItemViewController *itemView = [[ItemViewController alloc] init];
+    itemView.delegate = self;
 	itemView.index = index;
 	itemView.data = [self requestData:index];
     [itemView initData];
@@ -79,7 +84,7 @@ NSInteger currentPage = -1;
 }
 
 - (NSDictionary *)requestData:(NSUInteger)index {
-	NSInteger pageSize = 5;
+	NSInteger pageSize = 10;
 	NSInteger page = (index + 1) / pageSize + 1;
     NSLog(@"%@%d%@%d", @"current page : ", page, @" index : ", index);
 	if (page != currentPage) {

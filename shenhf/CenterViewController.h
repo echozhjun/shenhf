@@ -21,4 +21,6 @@ typedef NS_ENUM(NSInteger, CenterViewStatus) {
 @property (strong, nonatomic) WelcomeViewController *welcomeViewController;
 @property (assign, nonatomic) CenterViewStatus viewStatus;
 
+-(void)gotoPageAtIndex:(NSInteger)index;
+
 @end

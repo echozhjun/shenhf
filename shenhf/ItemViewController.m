@@ -12,6 +12,7 @@
 #import "WXApi.h"
 #import "HYActivityView.h"
 #import "TencentOpenAPI/QQApiInterface.h"
+#import <WeiboSDK/WeiboSDK.h>
 
 @interface ItemViewController ()
 @property (nonatomic, strong) HYActivityView *activityView;
@@ -24,6 +25,7 @@
 @synthesize data;
 
 NSArray *colors;
+Weibo *weibo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,23 +55,14 @@ NSArray *colors;
 - (void)initData {
 	NSString *title = [data objectForKey:@"title"];
     
-	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 320, [self heightForText:title])];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, [self heightForText:title])];
+    titleView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, [self heightForText:title])];
 	titleLabel.text = title;
 	titleLabel.textColor = [UIColor whiteColor];
-	titleLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-	titleLabel.numberOfLines = 0;
-	[self.view addSubview:titleLabel];
-    
-    NSInteger height = self.view.frame.size.height - titleLabel.frame.size.height - 20;
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleLabel.frame.size.height + 20, 320, height)];
-
-    NSInteger colorIndex = index % 10;
-	scrollView.backgroundColor = [colors objectAtIndex:colorIndex];
-    
-    [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 9999)];
-	[self.view addSubview:scrollView];
+    titleLabel.numberOfLines = 0;
+    [titleView addSubview:titleLabel];
+	[self.view addSubview:titleView];
     
     NSString *content = [data objectForKey:@"content"];
     NSString *parten = @"<a.*a>";
@@ -79,6 +72,7 @@ NSArray *colors;
     
     NSArray* match = [reg matchesInString:content options:NSMatchingCompleted range:NSMakeRange(0, [content length])];
     
+    EGOImageView *egoImageView;
     NSInteger currentHeight = 0;
     if (match.count != 0)
     {
@@ -101,10 +95,9 @@ NSArray *colors;
                         
                         NSString *img = [atag substringWithRange:r1];
                         img = [img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                        EGOImageView *egoImageView = [[EGOImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 280)];
+                        egoImageView = [[EGOImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 280)];
                         currentHeight = 260;
                         [egoImageView setImageURL:[NSURL URLWithString:img]];
-                        [scrollView addSubview:egoImageView];
                     }
                 }
             }
@@ -112,28 +105,74 @@ NSArray *colors;
             content = [content stringByReplacingOccurrencesOfString:atag withString:@""];
         }  
     }
-    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, currentHeight, 320, [self heightForText:content])];
-
+    NSInteger labelHeight = [self heightForText:content];
+    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, currentHeight, 300, labelHeight)];
 	contentLabel.text = content;
 	contentLabel.textColor = [UIColor whiteColor];
 	contentLabel.numberOfLines = 0;
-	[scrollView addSubview:contentLabel];
     
     
-	UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, currentHeight + [self heightForText:content], 320, 35)];
+    NSInteger bottomY = self.view.frame.size.height - 50;
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, bottomY, 320, 50)];
+    NSInteger colorIndex = index % 10;
+    bottomView.backgroundColor = [colors objectAtIndex:colorIndex];
+    bottomView.clipsToBounds = YES;
+    
+    CALayer *topBorder = [CALayer layer];
+    topBorder.borderColor = [UIColor lightTextColor].CGColor;
+    topBorder.borderWidth = 1;
+    topBorder.frame = CGRectMake(-2, 0, CGRectGetWidth(bottomView.frame) + 5, CGRectGetHeight(bottomView.frame)+1);
+    
+    [bottomView.layer addSublayer:topBorder];
+    
+	UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 35)];
 	timeLabel.text = [data objectForKey:@"post_date"];
 	timeLabel.textColor = [UIColor whiteColor];
 	timeLabel.numberOfLines = 0;
     timeLabel.textAlignment = UITextAlignmentCenter;
-	[scrollView addSubview:timeLabel];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *btnImage = [UIImage imageNamed:@"share.png"];
     [btn setImage:btnImage forState:UIControlStateNormal];
-    [btn setFrame:CGRectMake(290, currentHeight + [self heightForText:content], 27, 27)];
+    [btn setFrame:CGRectMake(10, 10, 30, 30)];
     [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:btn];
     
+    UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [nextBtn setTitle:@">" forState:UIControlStateNormal];
+    [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize: 30];
+    [nextBtn setFrame:CGRectMake(280, 0, 42, 42)];
+    [nextBtn addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSInteger height = self.view.frame.size.height - titleLabel.frame.size.height - 70;
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleLabel.frame.size.height + 20, 320, height)];
+    
+	scrollView.backgroundColor = [colors objectAtIndex:colorIndex];
+    
+    [scrollView setScrollEnabled:YES];
+    NSInteger contentHeight = 0;
+    if (egoImageView != nil) {
+        contentHeight = 280;
+    }
+    contentHeight = contentHeight + labelHeight + 50;
+    [scrollView setContentSize:CGSizeMake(320, contentHeight)];
+    if (egoImageView != nil) {
+        [scrollView addSubview:egoImageView];
+    }
+    [scrollView addSubview:contentLabel];
+    
+	[self.view addSubview:scrollView];
+    
+    [bottomView addSubview:timeLabel];
+    [bottomView addSubview:btn];
+    [bottomView addSubview:nextBtn];
+    [self.view addSubview:bottomView];
+}
+
+- (void)nextButtonClicked:(UIButton *)button
+{
+    [self.delegate gotoPageAtIndex:index + 1];
 }
 
 - (float)heightForText:(NSString *)value
@@ -183,12 +222,17 @@ NSArray *colors;
     
 }
 
+- (NSString *)shareContent {
+    NSString *title = [data objectForKey:@"title"];
+    NSString *content = [data objectForKey:@"content"];
+    return [NSString stringWithFormat:@"%@\n神回复:%@", title, content];
+}
+
 - (void) sendToWeixinSession
 {
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    NSString *title = [data objectForKey:@"title"];
-    NSString *content = [data objectForKey:@"content"];
-    req.text = [NSString stringWithFormat:@"%@\n神回复:%@", title, content];
+    
+    req.text = [self shareContent];
     req.bText = YES;
     req.scene = WXSceneSession;
     
@@ -198,9 +242,7 @@ NSArray *colors;
 - (void) sendToWeixinFriend
 {
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    NSString *title = [data objectForKey:@"title"];
-    NSString *content = [data objectForKey:@"content"];
-    req.text = [NSString stringWithFormat:@"%@\n神回复:%@", title, content];
+    req.text = [self shareContent];
     req.bText = YES;
     req.scene = WXSceneTimeline;
     
@@ -209,9 +251,7 @@ NSArray *colors;
 
 - (void) sendToQQ
 {
-    NSString *title = [data objectForKey:@"title"];
-    NSString *content = [data objectForKey:@"content"];
-    QQApiObject *_qqApiObject = [QQApiTextObject objectWithText:[NSString stringWithFormat:@"%@\n神回复:%@", title, content]];
+    QQApiObject *_qqApiObject = [QQApiTextObject objectWithText:[self shareContent]];
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:_qqApiObject];
     QQApiSendResultCode sent = [QQApiInterface sendReq:req];
     [self handleSendResult:sent];
@@ -219,8 +259,39 @@ NSArray *colors;
 
 - (void) sendToWeibo
 {
-    NSString *title = [data objectForKey:@"title"];
-    NSString *content = [data objectForKey:@"content"];
+    if (weibo == nil) {
+        weibo = [[Weibo alloc] initWithAppKey:@"3554647022" withAppSecret:@"ab02084fcf72060c1f19355c8cf01f45"];
+        [Weibo setWeibo:weibo];
+    }
+    if (![Weibo.weibo isAuthenticated]) {
+        [Weibo.weibo authorizeWithCompleted:^(WeiboAccount *account, NSError *error) {
+            if (!error) {
+                NSLog(@"成功登录，登录名: %@", account.user.screenName);
+                [self sendWeibo];
+            }
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"登录失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+        }];
+    } else {
+        [self sendWeibo];
+    }
+    
+}
+
+- (void) sendWeibo {
+    [weibo newStatus:[self shareContent] pic:nil completed:^(Status *status, NSError *error) {
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"分享到微博失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"分享到微博成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 
@@ -283,10 +354,5 @@ NSArray *colors;
     }
 }
 
-#pragma mark UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-}
 
 @end

@@ -12,7 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "TencentOpenAPI/QQApiInterface.h"
 #import "sdkCall.h"
-
+#import <WeiboSDK/WeiboSDK.h>
 
 @implementation AppDelegate
 
